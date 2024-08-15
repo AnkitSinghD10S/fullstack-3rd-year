@@ -1,0 +1,16 @@
+
+div  {
+    color: blueviolet;
+    padding: auto;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    padding: 100px;
+}
+p {
+    color: blueviolet;
+    padding: auto;
+    margin: auto;
+    justify-content: center;
+}
