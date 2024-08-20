@@ -1,0 +1,25 @@
+div p{
+    color: blue;
+    text-decoration: overline;
+    text-shadow: 2px 2px 10px red;
+    animation: circle 2s infinite;
+}
+@keyframes circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+div+p{
+    color: #888;
+    animation: circle 5s infinite;
+}
+
+#para+p{
+    animation: circle 10s infinite;
+    color: aquamarine;
+}
