@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+
+.container{
+    border: 3px solid red;
+    float: inline-start;
+}
+
+#spn{
+    border: 3px solid purple;
+    padding: 30px;
+    float: inline-start;
+}
+
+p{
+    border: 3px solid green;
+    float:right;
+    padding: 30px;
+    float: inline-start;
+}
