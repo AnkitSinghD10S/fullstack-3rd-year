@@ -1,0 +1,30 @@
+.container{
+    height: 340px;
+    width: 340px;
+    box-shadow: 10px 20px 50px black;
+    margin: 100px auto;
+    border: 3px solid black;
+    text-decoration: underline;
+    font-size: 150px;
+    /* transform: rotateX(50deg);
+    transform: rotateY(50deg);
+    transform: rotateZ(45deg);
+    transform: translateX(20px);
+    transform: translateY(-20px);
+    transform: translateZ(200px); */
+    /* transition-duration: 2s; */
+}
+
+.container:hover{
+    background-color: aqua;
+    /* transform: skewX(45deg); */
+    /* transform: scaleX(2); */
+    /* transform: scaleY(1.4); */
+    /* transform: scaleZ(100); */
+    /* transform: scale(1.25); */
+    transition-duration: 1s;
+    border-radius: 500px;
+    /* transform: skewY(90deg); */
+    translate: 40px 20px;
+
+}

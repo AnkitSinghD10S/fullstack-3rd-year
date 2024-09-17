@@ -1,0 +1,7 @@
+.container{
+    height: 400px;
+    width: 500px;
+    margin: auto;
+    background-color: aqua;
+    box-shadow: 20px 10px 100px black;
+}

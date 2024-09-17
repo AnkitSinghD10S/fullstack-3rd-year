@@ -1,0 +1,51 @@
+.box{
+    height: 300px;
+    width: 300px;
+    border: 3px solid red;
+    position: absolute;
+    animation-name: change;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate-reverse; */
+    animation-direction: normal;
+}
+
+@keyframes onepiece {
+    from{
+    }
+    to{
+        /* transition-duration: 4s;
+        background-image: url(./anime-one-piece-brook-one-piece-franky-one-piece-wallpaper-b251a2603dc66e6bcae892a5609889f2.jpg);
+        background-size:cover; */
+
+    }
+}
+@keyframes change {
+    0%{
+        top: 0px;
+        left: 0px;
+        background-color: red;
+
+    }
+    25%{
+        top: 0px;
+        left: 200px;
+        background-color: blue;
+    }
+    50%{
+        top: 200px;
+        left: 200px;
+        background-color:violet ;
+    }
+    75%{
+        top: 200px;
+        left: 0px;
+        background-color: green;
+    }
+    100%{
+        top: 0px;
+        left: 0px;
+        background-color:red ;
+    }
+
+}
