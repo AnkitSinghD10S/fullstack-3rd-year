@@ -1,13 +1,62 @@
 .box{
+    border-radius: 50%;
     height: 300px;
     width: 300px;
     border: 3px solid red;
     position: absolute;
-    animation-name: change;
+    animation-name: anim;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     /* animation-direction: alternate-reverse; */
     animation-direction: normal;
+    animation-timing-function: steps(5, end);
+
+}
+.eye1{
+    background-color:black ;
+    height: 40px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: 25%;
+    left: 25%;
+}
+.eye2{
+    background-color:black ;
+    height: 40px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: 12%;
+    left: 60%;
+}
+.mouth{
+    background-color:black ;
+    height: 60px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: 30%;
+    left: 45%;  
+    transform: rotate(90deg);
+}
+.eye1_white{
+    height: 20px;
+    width: 10px;
+    background-color: aliceblue;
+    position: relative;
+    top: 17px;
+    left: 16px;
+    border-radius: 50%;
+}
+.eye2_white{
+    height: 20px;
+    width: 10px;
+    background-color: aliceblue;
+    position: relative;
+    top: 17px;
+    left: 16px;
+    border-radius: 50%;
 }
 
 @keyframes onepiece {
@@ -17,7 +66,30 @@
         /* transition-duration: 4s;
         background-image: url(./anime-one-piece-brook-one-piece-franky-one-piece-wallpaper-b251a2603dc66e6bcae892a5609889f2.jpg);
         background-size:cover; */
-
+    }
+}
+@keyframes anim {
+    0%{
+        top: 0px;
+        left: 0px;
+        background-color: blanchedalmond;
+    }
+    20%{
+        background-color: aqua;
+    }
+    40%{
+        background-color: blueviolet;
+    }
+    60%{
+        background-color: yellow;
+    }
+    80%{
+        background-color: chartreuse;
+    }
+    100%{
+        top: 0px;
+        left: 300px;
+        background-color: red;
     }
 }
 @keyframes change {
