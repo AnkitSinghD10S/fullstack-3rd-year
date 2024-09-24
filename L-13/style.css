@@ -30,11 +30,7 @@
   position: absolute;
   bottom: 200px;
   left: 300px;
-  animation-name: rocket;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 4;
-  animation-direction: alternate;
+  animation: rocket 1s linear 0 4 alternate forwards, rotate 1s ease-in-out 5s forwards , lunch 2s linear 11s forwards;
 }
 
 @keyframes rocket {
@@ -52,12 +48,7 @@
   position: absolute;
   bottom: 350px;
   left: -800px;
-  animation-name: cody;
-  animation-duration: 5s;
-  animation-fill-mode: forwards;
-  animation-name: mini;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+  animation: cody 5s forwards, mini 1s 5s forwards;
 }
 
 .astro img {
@@ -76,8 +67,22 @@
   0% {
   }
   100% {
-    left: 300px;
+    left: 425px;
     bottom: 200px;
     transform: scale(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes lunch {
+  100%{
+    bottom: 10000;
   }
 }
