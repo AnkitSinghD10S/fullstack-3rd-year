@@ -20,9 +20,9 @@
             <li><%= user.email %></li>
             <li><%= user.city%></li>
             <br>
-            <a href="/user/<%=user.id %>">Show</a>
-            <a href="/user/<%=user.id%>/edit">edit</a>
-            <form action="/delete/<%=user.id%>" method="post">
+            <a href="/user/<%=user._id%>">Show</a>
+            <a href="/user/<%=user._id%>/edit">edit</a>
+            <form action="/delete/<%=user._id%>" method="post">
                 <button type="submit">delete</button>
             <br>
         <% }); %>

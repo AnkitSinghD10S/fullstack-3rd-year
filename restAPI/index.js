@@ -1,5 +1,22 @@
 import express from "express";
 import Users from "./data/users.js";
+import mongoose  from "mongoose";
+
+const userScheam = new mongoose.Schema({
+    name:String,
+    email:String,
+    age:Number,
+    city:String,
+})
+
+const User = mongoose.model('User',userScheam);
+
+mongoose.connect('mongodb://127.0.0.1:27017/sec-d').
+then(()=>{
+    console.log('db is connected');
+}).catch((err)=>{
+    console.log('error occured ' ,err);
+})
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -10,7 +27,8 @@ app.get("/", (req, res) => {
     res.send("Home page");
 });
 
-app.get("/users", (req, res) => {
+app.get("/users", async(req, res) => {
+    const Users = await User.find();
     res.render("users", { Users });
     // console.log(Users);
     // res.json(Users);
@@ -20,44 +38,51 @@ app.get("/users/new", (req, res) => {
     res.render("new");
 });
 
-app.post("/users", (req, res) => {
+app.post("/users",async (req, res) => {
     console.log(req.body);
     const { name, email, age, city } = req.body;
-    const id = Users.length == 0 ? 1 : Users[Users.length - 1].id + 1;
-    Users.push({ id, name, email, age, city });
+    await User.create({
+        name,
+        email,
+        age,
+        city
+    })
     res.redirect("/users");
 });
 
-app.get("/user/:id", (req, res) => {
+app.get("/user/:id", async(req, res) => {
     const { id } = req.params;
-    const user = Users.find((user) => user.id == id);
-    res.render("show", { user });
+    // console.log(id);
+    const u= await User.findOne({_id:id})
+    // console.log(u);
+    res.render("show", { u });
 });
 
-app.get("/user/:id/edit", (req, res) => {
+app.get("/user/:id/edit",async (req, res) => {
     const { id } = req.params;
-    const user = Users.find((user) => user.id == id);
-    res.render("edit", { user });
+    console.log(id);
+    const u= await User.findOne({_id:id})
+    console.log(u);
+    res.render("edit", { u});
 });
 
-app.post("/abc/:id", (req, res) => {
+app.post("/abc/:id", async(req, res) => {
     const { id } = req.params;
-    const user = Users.find((user) => user.id == id);
-    user.name = req.body.name;
-    user.email = req.body.email;
-    user.age = req.body.age;
-    user.city = req.body.city;
+    const u= await User.findOne({_id:id})
+    u.name = req.body.name;
+    u.email = req.body.email;
+    u.age = req.body.age;
+    u.city = req.body.city;
     res.redirect("/users");
 });
 
-app.post("/delete/:id", (req, res) => {
+app.post("/delete/:id", async(req, res) => {
     const { id } = req.params;
-    const user = Users.find((user) => user.id == id);
-    const index = Users.indexOf(user);
-    Users.splice(index, 1);
+    await User.deleteOne({_id:id})
     res.redirect("/users");
 });
 
 app.listen(3000, () => {
     console.log(`server is listenin on port ${3000}`);
 });
+
